@@ -50,7 +50,9 @@ app.use(require("./routes"));
 
 //antigamente era app.listen(3333)
 //agora a aplicacao esta ouvindo protocolo http e websocket, pela constante server
-server.listen(3333);
+//o heroku deve ter controle sobre a aplicacao, portanto foram feitas tais mudancas (variaveis ambiente)
+// nesta variavel ambiente, ha um "ou", que no caso de nao tiver utilizado o primeiro termo, utilizara a porta 3333
+server.listen(process.env.PORT || 3333);
 
 console.log('OK, servidor rodando');
 
